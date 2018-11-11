@@ -1,6 +1,6 @@
 #include "settings.h"
 
-#include "types/vid.h"
+#include "t_vid.h"
 
 unsigned int scr_width;
 unsigned int scr_height;

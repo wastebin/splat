@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef TYPES_SYS_H
-#define TYPES_SYS_H
+#ifndef T_SYS_H
+#define T_SYS_H
 
 typedef int exit_code;
 

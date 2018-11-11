@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef TYPES_VID_H
-#define TYPES_VID_H
+#ifndef T_VID_H
+#define T_VID_H
 
 typedef enum {
   VID_MODE_WINDOWED,

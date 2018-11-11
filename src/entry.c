@@ -1,6 +1,6 @@
-#include "types/sys.h"
+#include "t_sys.h"
 
-#include "eng/main.h"
+#include "eng_main.h"
 
 int main(int argc, char **argv) {
   exit_code c;

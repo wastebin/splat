@@ -3,7 +3,7 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#include "types/vid.h"
+#include "t_vid.h"
 
 extern unsigned int scr_width;
 extern unsigned int scr_height;
