@@ -1,5 +1,7 @@
 # Splat
-Splat is an RPG with roguelite gameplay elements that I’ve been working on.
+Splat is an RPG with roguelite gameplay elements that I’ve been working on. I
+was writing it in C++ at first, then I switched over to pure C (see
+[here](https://github.com/wastebin/splatc)), and now it’s in C-ish C++.
 
 Almost nothing is implemented.
 
