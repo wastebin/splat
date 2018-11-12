@@ -1,5 +1,5 @@
 #!/bin/bash
 
-gcc -o dist/"$(< cfg/binname)" $(echo $(for link in $(< cfg/links); do
+g++ -o dist/"$(< cfg/binname)" $(echo $(for link in $(< cfg/links); do
   echo "-l${link}";
-done)) $(echo $(< cfg/flags)) src/*.c
+done)) $(echo $(< cfg/flags)) src/*.cc

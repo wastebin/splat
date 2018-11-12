@@ -1,16 +1,37 @@
-# Splat C
-Splat is an RPG with roguelite gameplay elements that I’ve been working on. It
-is named Splat C because at first it was called just Splat and written in C++,
-but I’ve rewritten it in C.
+# Splat
+Splat is an RPG with roguelite gameplay elements that I’ve been working on.
 
 Almost nothing is implemented.
 
-## Command Line Arguments
-### `+res WIDTHxHEIGHT`
-Sets the window size to WIDTH by HEIGHT.
+## Command Line Options
+### +fullscreen
+Sets video mode to fullscreen.
 
-### `+windowed` (unimplemented)
-Makes the game appear in a window.
+### +windowed
+Sets video mode to windowed.
 
-### `+fullscreen` (unimplemented)
-Makes the game fullscreen.
+### +res-auto
+Sets resolution to auto.
+
+### +res WIDTHxHEIGHT
+Sets resolution to WIDTH by HEIGHT manually.
+
+## Video Modes
+Only one of these may be active at a time.
+
+### Fullscreen
+The game will take up the entire screen. The default video mode.
+
+### Windowed
+The game will appear in a floating window. The default video mode when
+resolution is manual.
+
+## Resolution types
+Only one of these may be active at a time.
+
+### Auto
+The game resolution will be the autodetected desktop resolution. The default
+resolution type when in fullscreen.
+
+### Manual
+The game resolution is specified manually.
