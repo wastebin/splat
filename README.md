@@ -6,16 +6,16 @@ was writing it in C++ at first, then I switched over to pure C (see
 Almost nothing is implemented.
 
 ## Command Line Options
-### +fullscreen
+### `+fullscreen`
 Sets video mode to fullscreen.
 
-### +windowed
+### `+windowed`
 Sets video mode to windowed.
 
-### +res-auto
+### `+res-auto`
 Sets resolution to auto.
 
-### +res WIDTHxHEIGHT
+### `+res WIDTHxHEIGHT`
 Sets resolution to WIDTH by HEIGHT manually.
 
 ## Video Modes
