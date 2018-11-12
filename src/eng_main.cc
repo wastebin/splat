@@ -4,12 +4,16 @@
 
 #include <SDL2/SDL.h>
 
-#include "t_sys.h"
-#include "t_vid.h"
+#include "t_sys.hh"
 
-#include "eng_main.h"
+#include "eng_main.hh"
 
-#include "settings.h"
+#include "settings.hh"
+
+int display;
+
+SDL_Window* window;
+SDL_Surface* surface;
 
 exit_code eng_main(eng_args *args) {
   {
@@ -31,8 +35,11 @@ exit_code eng_main(eng_args *args) {
 }
 
 exit_code eng_init(eng_args *args) {
-  scr_width = args->width ? args->width : 800;
-  scr_height = args->height ? args->height : 600;
+  res = args->res;
+  if (!res) res = VID_RES_AUTO;
+
+  mode = args->mode;
+  if (!mode) mode = res == VID_RES_SPEC ? VID_MODE_WINDOWED : VID_MODE_FULLSCREEN;
 
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     fprintf(stderr, "%s: SDL init error: %s\n", args->invoc, SDL_GetError());
@@ -42,14 +49,33 @@ exit_code eng_init(eng_args *args) {
   window = SDL_CreateWindow(
     "Splat",
     SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-    scr_width, scr_height,
-    SDL_WINDOW_SHOWN
+    640, 480,
+    SDL_WINDOW_HIDDEN
   );
 
   if (!window) {
     fprintf(stderr, "%s: SDL window error: %s\n", args->invoc, SDL_GetError());
     return 1;
   }
+
+  display = SDL_GetWindowDisplayIndex(window);
+
+  if (res == VID_RES_AUTO) {
+    SDL_DisplayMode dm;
+    SDL_GetDesktopDisplayMode(display, &dm);
+    scr_width = dm.w;
+    scr_height = dm.h;
+  } else {
+    scr_width = args->width ? args->width : 800;
+    scr_height = args->height ? args->height : 600;
+  }
+
+  SDL_SetWindowSize(window, scr_width, scr_height);
+
+  if (mode == VID_MODE_FULLSCREEN) SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+  else SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+
+  SDL_ShowWindow(window);
 
   surface = SDL_GetWindowSurface(window);
 

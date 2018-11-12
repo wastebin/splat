@@ -1,12 +1,17 @@
 #pragma once
 
-#ifndef T_SYS_H
-#define T_SYS_H
+#ifndef T_SYS_HH
+#define T_SYS_HH
+
+#include "t_vid.hh"
 
 typedef int exit_code;
 
 typedef struct {
   char *invoc;
+
+  vid_mode mode;
+  vid_res res;
 
   int width;
   int height;

@@ -1,16 +1,16 @@
 #pragma once
 
-#ifndef ENG_MAIN_H
-#define ENG_MAIN_H
+#ifndef ENG_MAIN_HH
+#define ENG_MAIN_HH
 
 #include <stdbool.h>
 
 #include <SDL2/SDL.h>
 
-#include "t_sys.h"
+#include "t_sys.hh"
 
-SDL_Window* window;
-SDL_Surface* surface;
+extern SDL_Window* window;
+extern SDL_Surface* surface;
 
 exit_code eng_main(eng_args *);
 exit_code eng_init(eng_args *);
